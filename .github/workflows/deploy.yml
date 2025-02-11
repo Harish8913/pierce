@@ -3,9 +3,8 @@ name: Deploy Vite App to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust if your main branch has a different name
-
-  workflow_dispatch:  # Allows manual deployment
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -22,7 +21,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # Adjust as per your project needs
+          node-version: 18
 
       - name: Install dependencies
         run: npm install
@@ -33,7 +32,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2  # ✅ Correct version
         with:
-          path: dist  # Vite outputs to "dist" folder
+          path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment
