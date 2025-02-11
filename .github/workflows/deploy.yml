@@ -29,13 +29,13 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      - name: List files (Debugging Step)  # 👀 Check if dist/ is created
-        run: ls -la
+      - name: Debug: List files before uploading
+        run: ls -la && ls -la dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist  # ✅ Ensure this matches your Vite output directory
+          path: dist  # ✅ Make sure this matches your Vite build folder
 
       - name: Deploy to GitHub Pages
         id: deployment
