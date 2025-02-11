@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v4  # ✅ Updated to latest v4
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -29,10 +29,13 @@ jobs:
       - name: Build the project
         run: npm run build
 
+      - name: List files (Debugging Step)  # 👀 Check if dist/ is created
+        run: ls -la
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3  # ✅ Updated to v3 (latest)
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: dist  # ✅ Ensure this matches your Vite output directory
 
       - name: Deploy to GitHub Pages
         id: deployment
