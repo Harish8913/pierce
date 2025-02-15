@@ -5,8 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: './',
+  base: '/',
   build: {
-    outDir: 'dist',  // ✅ This should match the workflow path
+    outDir: 'dist',  // Ensure output goes to 'dist'
   }
 })
